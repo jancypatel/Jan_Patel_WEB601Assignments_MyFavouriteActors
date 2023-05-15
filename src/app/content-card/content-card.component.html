@@ -1,0 +1,3 @@
+<div *ngFor="let content of contentList.contentList">
+      <div [innerHTML]="contentList.getContentHTML(contentList.contentList.indexOf(content))"></div>
+</div>   
