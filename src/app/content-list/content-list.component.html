@@ -1,0 +1,20 @@
+<div class="content-list">
+      <div *ngFor="let content of contents; let first = first" class="content-card" [ngClass]="{ 'border-black': first }">
+            <h2>{{ content.title }}</h2>
+            <div *ngIf="content.image">
+                  <img [src]="content.image" (click)="logDetails(content)">
+            </div>
+            <div *ngIf="content.description">
+                  <p>Description: {{ content.description }}</p>
+            </div>
+            <div *ngIf="content.creator">
+                  <p>Creator: {{ content.creator }}</p>
+            </div>
+            <div *ngIf="content.type">
+                  <p>Type: {{ content.type }}</p>
+            </div>
+            <div *ngIf="content.tags && content.tags.length > 0">
+                  <p>Tags: {{ content.tags.join(', ') }}</p>
+            </div>      
+      </div>
+</div>
