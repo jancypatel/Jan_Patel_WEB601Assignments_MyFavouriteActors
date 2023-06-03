@@ -1,20 +1,21 @@
-<div class="content-list">
-      <div *ngFor="let content of contents; let first = first" class="content-card" [ngClass]="{ 'border-black': first }">
-            <h2>{{ content.title }}</h2>
-            <div *ngIf="content.image">
-                  <img [src]="content.image" (click)="logDetails(content)">
-            </div>
-            <div *ngIf="content.description">
-                  <p>Description: {{ content.description }}</p>
-            </div>
-            <div *ngIf="content.creator">
-                  <p>Creator: {{ content.creator }}</p>
-            </div>
-            <div *ngIf="content.type">
-                  <p>Type: {{ content.type }}</p>
-            </div>
-            <div *ngIf="content.tags && content.tags.length > 0">
-                  <p>Tags: {{ content.tags.join(', ') }}</p>
-            </div>      
-      </div>
+<h2>Content List</h2>
+
+<div>
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title" />
+  <button (click)="searchContent()">Search</button>
+  <p [style.color]="titleExists ? 'green' : 'red'">
+    {{ searchMessage }}
+  </p>
 </div>
+
+<h3>Content with No Type:</h3>
+<app-content-card *ngFor="let content of contents | typeFilter: ''" [content] = "content">
+</app-content-card>
+
+<h3>Content with Pakistani Actors:</h3>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Pakistani'" [content] = "content">
+</app-content-card>
+
+<h3>Content with Turkish Actors:</h3>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Turkish'" [content] = "content">
+</app-content-card>
