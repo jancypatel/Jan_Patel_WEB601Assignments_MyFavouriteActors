@@ -57,7 +57,7 @@ export class ContentListComponent {
       title: 'Keanu Reeves', 
       description: 'Keanu Reeves is a Canadian actor.', 
       creator: 'Created his career in Canadian Television Industry.',
-      image: 'https://media.gq-magazine.co.uk/photos/63ee06e8b1322681bf7aa628/1:1/w_1080,h_1080,c_limit/Keanu-Reeves.jpg', 
+      image: '', 
       tags: ['CanadianActor', 'Canadian'] 
     },
     { 
