@@ -11,3 +11,56 @@
       border: 1px solid black;
 }
 
+/* styles.css */
+
+/* Set font styles */
+body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h2, h3 {
+      color: #240c0c;
+    }
+    
+    /* Style the search input and button */
+    input[type="text"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Style the content cards */
+    .app-content-card {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    /* Style the ID, title, description, and creator in the last content div */
+    .content-info {
+      margin-bottom: 10px;
+    }
+    
+    .content-info h1 {
+      font-size: 24px;
+    }
+    
+    .content-info h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .content-info h3 {
+      font-size: 16px;
+    }
+    

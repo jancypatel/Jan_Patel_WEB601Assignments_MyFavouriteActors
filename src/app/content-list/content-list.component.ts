@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
 
 @Component({
   selector: 'app-content-list',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ContentListComponent {
 
-  contents: any[] = [
+  contents: Content[] = [
     { 
       id: 1, 
       title: 'Feroz Khan', 
@@ -84,4 +85,9 @@ export class ContentListComponent {
       ? `Content with title '${this.searchTitle}' exists.`
       : `Content with title '${this.searchTitle}' does not exist.`;
   }
+  addContent(newContent: Content) {
+    this.contents.push(newContent);
+    this.contents = [...this.contents]; 
+  }
+  
 }
