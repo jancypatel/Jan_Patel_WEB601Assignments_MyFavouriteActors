@@ -19,7 +19,16 @@ export class ContentListComponent {
 
   ngOnInit() {
     this.ActorServiceService.getActor().subscribe(actor => this.contents = actor );
+
   }
+
+  addNewActor(newActor: Content){
+    this.ActorServiceService.addActor(newActor).subscribe(newActorFromServer => {
+      this.contents.push(newActorFromServer);
+      this.contents = [...this.contents];
+    });
+  }
+  
   searchByTitle() {
     const matchingActor = this.contents.find(actor => actor.title.toLowerCase() === this.searchTitle.toLowerCase());
     const cardElements = document.querySelectorAll(`div.card`);
