@@ -1,17 +1,23 @@
-<div [id]="actor.id" [ngClass]="['card', class]" hoverAffect="border">
-
-    <div *ngIf="actor.image; else defaultImage">
-        <img  [src]="actor.image" alt={{actor.title}} (click)="handleClick(actor)">
-    </div>
-    <ng-template #defaultImage>
-        <img [src]="defaultActor" alt={{actor.title}} (click)="handleClick(actor)">
-    </ng-template>
-
-    <h2>{{actor.title}}</h2>
-    <p>{{actor.description}}</p>
-    <p><strong>Creator:</strong> {{actor.creator}}</p>
-    <p *ngIf="actor.type" hoverAffect="underline"><strong>Type:</strong> {{actor.type}}</p>
-    <p *ngIf="actor.tags"><strong>Tags:</strong> 
-        <span *ngFor="let tag of actor.tags" hoverAffect="bold">#{{ tag }}</span>
-    </p>
-</div>
+<mat-card [id]="actor.id" [ngClass]="['card', class]" appHoverAffect="border">
+    <mat-card-header [matTooltip]="actor.title" [matTooltipPosition]="'above'">
+        <div class="card-img">
+            <div *ngIf="actor.image; else defaultImage">
+                <img mat-card-image  [src]="actor.image" alt={{actor.title}} (click)="handleClick(actor)">
+            </div>
+            <ng-template #defaultImage>
+                <img mat-card-image [src]="defaultActor" alt={{actor.title}} (click)="handleClick(actor)">
+            </ng-template>
+        </div>
+    </mat-card-header>
+    <mat-card-content class="card-body">
+        <h2>{{actor.title}}</h2>
+        <p>{{actor.description}}</p>
+        <p><strong>Creator:</strong> {{actor.creator}}</p>
+    </mat-card-content>
+    <mat-card-footer>
+        <p *ngIf="actor.type" appHoverAffect="underline"><strong>Type:</strong> {{actor.type}}</p>
+        <p *ngIf="actor.tags"><strong>Tags:</strong> 
+            <span *ngFor="let tag of actor.tags" appHoverAffect="bold"> #{{tag}}, </span>
+        </p>
+    </mat-card-footer>
+</mat-card>
