@@ -29,12 +29,12 @@ export class ActorServiceService {
   }
 
   getActorById(id: number): Observable<any> {
-    const actor = contents.find(content => content.id === id);
+    const actor = this.http.get<Content>(`api/actor/${id}`);
 
     if (actor) {
       this.MessageService.add(`Content Item at id: ${id}`);
 
-      return of(actor);
+      return actor;
     }
     this.MessageService.add("Invalid Id");
 

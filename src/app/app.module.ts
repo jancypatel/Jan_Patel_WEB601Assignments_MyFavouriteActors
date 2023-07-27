@@ -12,6 +12,7 @@ import { ModifyContentComponent } from './modify-content/modify-content.componen
 import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +22,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +34,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HoverAffectDirective,
     MessageComponent,
     ModifyContentComponent,
-    AddContentDialogComponent
+    AddContentDialogComponent,
+    ContentDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
@@ -44,7 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTooltipModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      delay: 1000
+      
     }),
     BrowserAnimationsModule
   ],
